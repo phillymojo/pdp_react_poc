@@ -21,9 +21,16 @@
   },
   "homepage": "https://github.com/phillymojo/pdp_react_poc",
   "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-browserify": "^4.0.1",
+    "grunt-contrib-concat": "^0.5.1",
+    "grunt-contrib-uglify": "^0.11.0",
+    "grunt-contrib-watch": "^0.6.1",
     "nodemon": "^1.8.1"
   },
   "dependencies": {
-    "express": "^4.13.3"
+    "express": "^4.13.3",
+    "express-handlebars": "^2.0.1",
+    "react": "^0.14.3"
   }
 }

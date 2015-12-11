@@ -1,11 +1,14 @@
 var fs = require('fs');
 var express = require('express');
+var exphbs = require('express-handlebars');
+var routes = require('./routes')
 
 var app = express();
 
-app.get('/', function(req,res){
-	res.send('Root page')
-});
+app.engine('handlebars', exphbs({ defaultLayout: 'main'}));
+app.set('view engine', 'handlebars');
+
+app.get('/', routes.index);
 
 app.use("/", express.static(__dirname + '/public/'));
 
