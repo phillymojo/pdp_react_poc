@@ -1,9 +1,9 @@
 var React = require('react');
 
-module.exports = PDPApp = React.createClass({
+var PDPApp = React.createClass({
 	render: function(){
-		return(
-			<div className="PDPApp_container"></div>
-		);
+		return <div className="PDPApp_container">{this.props.data.title}</div>;
 	}
 });
+
+module.exports = PDPApp;
