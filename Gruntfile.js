@@ -7,9 +7,9 @@ module.exports = function(grunt){
 				files: ['src/libs/*.js'],
 				tasks: ['concat:libs']
 			},
-			scripts: {
-				files: ['app.js'],
-				tasks: ['concat:scripts']
+			browserify: {
+				files: ['app.js', 'components/**/*.js'],
+				tasks: ['browserify:main']
 			}
 		},
 		concat: {
@@ -19,9 +19,15 @@ module.exports = function(grunt){
 				options: {
 					seperator: ';'
 				}
+			}
+		},
+		browserify: {
+			main: {
+				src: ['app.js', '<%= watch.browserify.files %>'],
+				dest: 'public/js/bundle.js'
 			},
-			scripts: {
-				src: []
+			options: {
+				transform: ['reactify']
 			}
 		}
 	});
