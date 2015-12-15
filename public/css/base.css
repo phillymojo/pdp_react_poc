@@ -1,0 +1,38 @@
+body {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+#page_home {
+	margin: 5px auto;
+}
+
+.title {
+	font-size: 24px;
+}
+
+.latest_post_title {
+	font-weight: bold;
+}
+
+.latest_post_content {
+	max-height: 82px;
+	overflow: hidden;
+}
+
+.next_birthday_image {
+	width: 80px;
+	height: 100px;
+	background-color: #ccc;
+}
+
+.items_container {
+	margin-top: 20px;
+}
+.itembox {
+	margin-bottom: 20px;	
+}
+.itemimage {
+	background-color: #ccc;
+	min-height: 220px;
+}
+
