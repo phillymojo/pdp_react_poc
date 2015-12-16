@@ -2,7 +2,7 @@ var http = require('http');
 
 var pdp = {
 	fetchDataServerSide: function(callback){
-		var data = {title: 'Hello, world!'};
+		var data = {};
 
 		var options = {
 			host: 'store.nike.com',

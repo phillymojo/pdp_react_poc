@@ -14,11 +14,8 @@ ReactDom.render(
 var React = require('react');
 
 var PDPApp = React.createClass({displayName: "PDPApp",
-	getInitialState: function(){
-		return {displayName: ''};
-	},
 
-	componentDidMount: function(){ 
+	loadDataFromServer: function(){
 		//Fetch the PDP data via an ajax call
 		$.ajax({
 			context: this,
@@ -26,19 +23,36 @@ var PDPApp = React.createClass({displayName: "PDPApp",
 			dataType: 'jsonp'
 		}).done(function(res){
 			this.setState(res.response.pdpData);
-		});
+		})
+	},
 
-		
+	getInitialState: function(){
+		return {};
+	},
+
+	componentDidMount: function(){ 
+		this.loadDataFromServer();		
 	},
 
 	createMarkup: function(markup) { return {__html: markup} },
 
 	render: function(){
+		/*
+			I want this render() to only happen on the client, since the server does not have the PDP data.
+			If this render() happens on the server, it throws errors because this.state is empty, and
+			then all references to this.state.[propName] are 'undefined'.
+			For instance, this.state.productTitle is 'undefined' upon server render, but that is not an
+			issue since it is just a value lookup, and will just render an empty value. 
+			But this.state.reviews.averageRating throws an error because 
+			it is trying to access a property of an 'undefined' object (this.state.reviews).
+		*/
+
 		return (
 			React.createElement("div", {className: "PDPApp_container"}, 
 				React.createElement("div", null, this.state.productTitle), 
 				React.createElement("div", null, this.state.productSubTitle), 
 				React.createElement("div", null, this.state.localPrice), 
+				/*<div>{this.state.reviews.averageReviews}</div>*/
 				React.createElement("div", {dangerouslySetInnerHTML: this.createMarkup(this.state.colorwayGeneralMessage)})
 			)
 		)
