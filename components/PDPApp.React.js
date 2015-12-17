@@ -1,4 +1,6 @@
 var React = require('react');
+var PDPPage = require('./PDPPage/PDPPage.react');
+var Loading = require('./PDPPage/Loading.react');
 
 var PDPApp = React.createClass({
 
@@ -13,34 +15,29 @@ var PDPApp = React.createClass({
 		})
 	},
 
-	getInitialState: function(){
-		return {};
-	},
-
 	componentDidMount: function(){ 
 		this.loadDataFromServer();		
 	},
 
-	createMarkup: function(markup) { return {__html: markup} },
-
 	render: function(){
 		/*
-			I want this render() to only happen on the client, since the server does not have the PDP data.
-			If this render() happens on the server, it throws errors because this.state is empty, and
-			then all references to this.state.[propName] are 'undefined'.
-			For instance, this.state.productTitle is 'undefined' upon server render, but that is not an
-			issue since it is just a value lookup, and will just render an empty value. 
-			But this.state.reviews.averageRating throws an error because 
-			it is trying to access a property of an 'undefined' object (this.state.reviews).
+			Since the server is not able to fetch the PDP data (must be Tesla blocking server-side calls?),
+			we do not want to render the PDPPage on the server; it will not render without the data.
+			So we check this.state to see if its is set first, which if true, means it is being rendered on
+			the client. If false, then just server the page with the Loading component.
 		*/
+
+		var pdpPage;
+
+		if(!this.state){
+			pdpPage = <Loading />;
+		} else {
+			pdpPage = <PDPPage data={this.state} />;
+		}
 
 		return (
 			<div className="PDPApp_container">
-				<div>{this.state.productTitle}</div>
-				<div>{this.state.productSubTitle}</div>
-				<div>{this.state.localPrice}</div>
-				{/*<div>{this.state.reviews.averageReviews}</div>*/}
-				<div dangerouslySetInnerHTML={this.createMarkup(this.state.colorwayGeneralMessage)} />
+				{pdpPage}
 			</div>
 		)
 	}
