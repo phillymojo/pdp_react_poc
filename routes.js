@@ -8,7 +8,6 @@ var pdp = require('./models/pdp');
 module.exports = {
 	index: function(req,res){
 
-		//load PDP data, and pass it to the PDPApp
 		/*	
 			currently this call is returning an empty object, since I cannot figure out how to call
 			the PDP endpoint directly from the server (prob a Tesla safeguard?); the resonse is just {success: false;}
@@ -21,7 +20,7 @@ module.exports = {
 			var markup = ReactDom.renderToString(
 				PDPApp()
 			);
-			
+
 			res.render('home', {
 				markup: markup,
 				state: JSON.stringify(data)

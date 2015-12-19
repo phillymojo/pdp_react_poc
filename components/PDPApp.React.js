@@ -22,7 +22,7 @@ var PDPApp = React.createClass({
 	render: function(){
 		/*
 			Since the server is not able to fetch the PDP data (must be Tesla blocking server-side calls?),
-			we do not want to render the PDPPage on the server; it will not render without the data.
+			we do not want to render the PDPPage on the server; because it will not render without the data.
 			So we check this.state to see if its is set first, which if true, means it is being rendered on
 			the client. If false, then just server the page with the Loading component.
 		*/
