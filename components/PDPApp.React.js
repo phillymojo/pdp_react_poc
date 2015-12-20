@@ -4,11 +4,25 @@ var Loading = require('./PDPPage/Loading.react');
 
 var PDPApp = React.createClass({
 
-	loadDataFromServer: function(){
+	/*
+	Accept an object with properites of the requested service
+	*/
+	loadDataFromServer: function(reqParams){
 		//Fetch the PDP data via an ajax call
+
+		var service = (reqParams && reqParams.service) || "http://store.nike.com/html-services/templateData/pdpData?action=getPage";
+		var path = (reqParams && reqParams.path) || "/us/en_us/pd/air-max-95-sneakerboot-boot/pid-10338627/pgid-10348285";
+		var productId = (reqParams && reqParams.productId) || "10338627";
+		var productGroupId = (reqParams && reqParams.productGroupId) || "10348285";
+		var catalogId = (reqParams && reqParams.catalogId) || "1";
+		var country = (reqParams && reqParams.country) || "US";
+		var lang_locale = (reqParams && reqParams.lang_locale) || "en_US";
+
+		var url = service + "&path=" + path + "&productId=" + productId + "&productGroupId=" + productGroupId + "&catalogId=" + catalogId + "&country=" + country + "&lang_locale=" + lang_locale;
+
 		$.ajax({
 			context: this,
-			url: '//store.nike.com/html-services/templateData/pdpData?action=getPage&path=/us/en_us/pd/air-max-95-sneakerboot-boot/pid-10338627/pgid-10348285&productId=10338627&productGroupId=10348285&catalogId=1&country=US&lang_locale=en_US',
+			url: url,
 			dataType: 'jsonp'
 		}).done(function(res){
 			this.setState(res.response.pdpData);
