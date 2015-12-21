@@ -12,18 +12,22 @@ var PDPPage = React.createClass({
 
 		return (
 			<div className="pdpPage">
-				<HeroImage heroImages={data.imagesHeroLarge} />
-				<Thumbnails thumbnails={data.imagesThumbnail} />
-				<div className="pdp_productTitle">{data.productTitle}</div>
-				<div className="pdp_productSubTitle">{data.productSubTitle}</div>
-				<div className="pdp_localPrice">{data.localPrice}</div>
-				<div className="pdp_reviews-formattedAverageRating">{data.reviews.formattedAverageRating}</div>
-				<hr />
-				<div className="pdp_colorDescription">{data.colorDescription}</div>
-				<div className="pdp_styleandcolorNumber">Style: {data.styleNumber}-{data.colorNumber}</div>
-				<Colorways colorways={data.inStockColorways} />
-				<hr />
-				<div className="pdp_colorwayGeneralMessage" dangerouslySetInnerHTML={this.createMarkup(data.colorwayGeneralMessage)} />
+				<div className="pdp_hero_and_alt_images">
+					<HeroImage heroImages={data.imagesHeroLarge} />
+					<Thumbnails thumbnails={data.imagesThumbnail} />
+				</div>
+				<div className="pdp_content_container">
+					<h1 className="pdp_productTitle">{data.productTitle}</h1>
+					<div className="pdp_productSubTitle">{data.productSubTitle}</div>
+					<div className="pdp_localPrice">{data.localPrice}</div>
+					<div className="pdp_reviews-formattedAverageRating">{data.reviews.formattedAverageRating}</div>
+					<hr />
+					<div className="pdp_colorDescription">{data.colorDescription}</div>
+					<div className="pdp_styleandcolorNumber">Style: {data.styleNumber}-{data.colorNumber}</div>
+					<Colorways colorways={data.inStockColorways} />
+					<hr />
+					<div className="pdp_colorwayGeneralMessage" dangerouslySetInnerHTML={this.createMarkup(data.colorwayGeneralMessage)} />
+				</div>
 			</div>
 		)
 	}
