@@ -22,8 +22,10 @@ var PDPPage = React.createClass({
 					<div className="pdp_localPrice">{data.localPrice}</div>
 					<div className="pdp_reviews-formattedAverageRating">{data.reviews.formattedAverageRating}</div>
 					<hr />
-					<div className="pdp_colorDescription">{data.colorDescription}</div>
-					<div className="pdp_styleandcolorNumber">Style: {data.styleNumber}-{data.colorNumber}</div>
+					<div className="pdp_styleandcolor-info">
+						<span className="pdp_colorDescription">{data.colorDescription}</span>
+						<span className="pdp_styleandcolorNumber">Style: {data.styleNumber}-{data.colorNumber}</span>
+					</div>
 					<Colorways colorways={data.inStockColorways} />
 					<hr />
 					<div className="pdp_colorwayGeneralMessage" dangerouslySetInnerHTML={this.createMarkup(data.colorwayGeneralMessage)} />

@@ -1,3 +1,12 @@
+@font-face{
+    font-family:"TradeGothicW01-BoldCn20 675334";
+    src:url("257c802f-349c-4b4d-aefa-546d5de15ec6.eot?iefix") format("eot");}
+@font-face{
+    font-family:"TradeGothicW01-BoldCn20 675334";
+    src:url("257c802f-349c-4b4d-aefa-546d5de15ec6.eot?iefix");
+    src:url("https://secure-store.nike.com/content-static/Fonts/5fdc935e-9e30-442a-bbe9-8d887b858471.woff") format("woff"),url("616c4c87-a077-43f4-a9f4-f01267c13818.ttf") format("truetype"),url("c901ad5f-a842-4549-a1f4-583a97f7e169.svg#c901ad5f-a842-4549-a1f4-583a97f7e169") format("svg");
+}
+
 body {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 }
@@ -41,4 +50,18 @@ body {
 	text-transform: uppercase;
 	letter-spacing: -1;
 	line-height: 1.1;
+}
+
+.pdp_styleandcolor-info {
+	position: relative;
+	overflow: hidden;
+	font-size: 11px;
+}
+
+.pdp_colorDescription {
+
+}
+
+.pdp_styleandcolorNumber {
+	float: right;
 }
