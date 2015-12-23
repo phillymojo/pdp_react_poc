@@ -7,13 +7,31 @@
     <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="css/base.css" />
 
+    <link rel="stylesheet" type="text/css" media="screen" href="http://store.nike.com/us/en_us/style.css?app=nikestore&version=latest&assets=nike,nike.gadget.OneNikeNav,nike.gadget.OneNikeFooter&assetType=STYLE" />
+
+
     <!-- Libraries -->
     <script src='js/libs.js'></script>
+
+    <!-- NikeScriptManager -->
+    <script type="text/javascript" src="http://store.nike.com/us/en_us/NikeScriptManager.js?app=nikestore&assets=nike,nike.fonts.glyphPolyfill,nike.gadget.OneNikeNav,nike.gadget.OneNikeFooter,yepnope.injectCss&assetType=SCRIPT"></script>
   </head>
   <body>
+    <div data-gadget="nike.gadget.OneNikeNav"></div>
     {{{ body }}}
-
-    <!-- Start the webapp -->   
+    <div data-gadget="nike.gadget.OneNikeFooter"></div>
+    <!-- Start the webapp -->  
+    <script>
+      var nsgConfig = {
+        HOST: 'http://www.nike.com',
+        BASEPATH: '/styleguide/nsg/',
+        TENANT: 'NIKE',
+        LOCALE: 'en',
+        PLATFORM: 'desktop',
+        PLACEMENT: 'append'
+      };
+    </script>
+    <script src="http://www.nike.com/styleguide/init/nsg.js"></script> 
     <script src="/js/bundle.js"></script> 
   </body>
 </html>
