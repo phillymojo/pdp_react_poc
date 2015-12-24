@@ -11,6 +11,10 @@ body {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 }
 
+section#react-app {
+	margin-top: 108px;
+}
+
 .pdpPage {
 	font-weight: 400;
 	font-family: 'TradeGothicW01-BoldCn20 675334',Helvetica,Arial,sans-serif;
